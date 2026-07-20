@@ -1,4 +1,4 @@
-import TaskItem from "./TaskItem";
+import TaskItem from './TaskItem'; 
 
 export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }) {
   if (tasks.length === 0) {
@@ -13,7 +13,7 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }) 
         <TaskItem
           key={task.id}
           task={task}
-          onToggleComplete={handleToggle}
+          onToggleComplete={onToggleComplete}
           onEdit={onEdit}
           onDelete={onDelete}
         />

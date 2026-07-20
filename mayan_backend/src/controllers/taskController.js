@@ -8,7 +8,7 @@ exports.getTasks = async (req, res) => {
     const where = {};
 
     if (search) {
-      where.title = { [Op.like]: `%${search}%` };
+      where.title = { [Op.iLike]: `%${search}%` };
     }
 
     if (status === "active") {
@@ -63,15 +63,18 @@ exports.updateTask = async (req, res) => {
 exports.toggleTask = async (req, res) => {
   try {
     const { is_completed } = req.body;
-    const task = await Task.findByPk(req.params.id);
 
+    if (typeof is_completed !== "boolean") {
+      return res.status(400).json({ message: "is_completed must be a boolean" });
+    }
+
+    const task = await Task.findByPk(req.params.id);
     if (!task) {
       return res.status(404).json({ message: "Task not found" });
     }
 
     task.is_completed = is_completed;
     await task.save();
-
     res.status(200).json(task);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -89,6 +92,7 @@ exports.deleteTask = async (req, res) => {
     await task.destroy();
     res.status(200).json({ message: "Task deleted" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong" });
   }
 };
