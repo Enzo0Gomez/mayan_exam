@@ -27,13 +27,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-10 px-4">
-      <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+    <div className="min-h-screen px-4 py-10 bg-gray-50">
+      <div className="p-6 mx-auto bg-white border border-gray-200 shadow-sm max-w-[20em] rounded-2xl">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-semibold text-gray-900">My tasks</h1>
           <button
             onClick={openAddModal}
-            className="flex items-center gap-2 bg-gray-900 text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white transition bg-gray-900 rounded-lg hover:bg-gray-800"
           >
             + Add task
           </button>
@@ -43,10 +43,10 @@ export default function App() {
         <FilterTabs selectedFilter={activeFilter} setSelectedFilter={setActiveFilter} />
 
         {loading && (
-          <p className="text-sm text-gray-400 text-center py-6">Loading tasks...</p>
+          <p className="py-6 text-sm text-center text-gray-400">Loading tasks...</p>
         )}
         {error && (
-          <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-3 py-2 mt-4">
+          <p className="px-3 py-2 mt-4 text-sm text-red-600 border border-red-200 rounded-lg bg-red-50">
             {error}
           </p>
         )}
