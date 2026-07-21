@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen px-4 py-10 bg-gray-50">
-      <div className="p-6 mx-auto bg-white border border-gray-200 shadow-sm max-w-[20em] rounded-2xl">
+      <div className="max-w-3xl p-6 mx-auto bg-white border border-gray-200 shadow-sm rounded-2xl">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-semibold text-gray-900">My tasks</h1>
           <button
