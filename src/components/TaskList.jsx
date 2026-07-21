@@ -8,7 +8,7 @@ export default function TaskList({ tasks, onToggleComplete, onEdit, onDelete }) 
   }
 
   return (
-    <div className="flex flex-col divide-y divide-gray-100">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
       {tasks.map((task) => (
         <TaskItem
           key={task.id}
